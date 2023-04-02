@@ -5,8 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
     android:background="@drawable/bg"
+    android:gravity="center"
     tools:context=".MainActivity2">
 
     <TableLayout
@@ -26,7 +26,7 @@
 
             <Button
 
-                android:id="@+id/btn1"
+                android:id="@+id/button1"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_margin="3dp"
@@ -35,45 +35,15 @@
 
             <Button
                 android:contentDescription=" "
-                android:id="@+id/btn2"
+                android:id="@+id/button2"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_margin="3dp"
                 android:textSize="40sp" />
 
             <Button
-                android:id="@+id/btn3"
+                android:id="@+id/button3"
                 android:contentDescription=" "
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_margin="3dp"
-                android:textSize="40sp" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center">
-
-            <Button
-                android:contentDescription=" "
-                android:id="@+id/btn4"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_margin="3dp"
-                android:textSize="40sp" />
-
-            <Button
-                android:contentDescription=" "
-                android:id="@+id/btn5"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_margin="3dp"
-                android:textSize="40sp" />
-
-            <Button
-                android:contentDescription=" "
-                android:id="@+id/btn6"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_margin="3dp"
@@ -87,7 +57,7 @@
 
             <Button
                 android:contentDescription=" "
-                android:id="@+id/btn7"
+                android:id="@+id/button4"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_margin="3dp"
@@ -95,7 +65,7 @@
 
             <Button
                 android:contentDescription=" "
-                android:id="@+id/btn8"
+                android:id="@+id/button5"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_margin="3dp"
@@ -103,7 +73,40 @@
 
             <Button
                 android:contentDescription=" "
-                android:id="@+id/btn9"
+                android:id="@+id/button6"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="3dp"
+                android:textSize="40sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+
+
+
+            <Button
+                android:contentDescription=" "
+                android:id="@+id/button7"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="3dp"
+                android:textSize="40sp" />
+
+            <Button
+                android:contentDescription=" "
+                android:id="@+id/button8"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="3dp"
+                android:textSize="40sp" />
+
+            <Button
+                android:contentDescription=" "
+                android:id="@+id/button9"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_margin="3dp"
@@ -117,7 +120,7 @@
 
             <Button
 
-                android:id="@+id/restart_btn"
+                android:id="@+id/restart_button"
                 android:layout_marginTop="15dp"
                 android:layout_width="100dp"
                 android:alpha="0.7"
@@ -140,13 +143,13 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textView_won"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:fontFamily="cursive"
-        android:textColor="#7ed957"
         android:text=" "
+        android:textColor="#7ed957"
         android:textSize="25sp"
         app:layout_constraintBottom_toTopOf="@+id/tableLayout"
         app:layout_constraintEnd_toEndOf="@+id/textView2"
@@ -154,16 +157,18 @@
         app:layout_constraintStart_toStartOf="@+id/textView2"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.752" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="20dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginRight="40dp"
+        android:layout_marginTop="8dp"
+
         android:gravity="center"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="@+id/textView2"
+        app:layout_constraintHorizontal_bias="0.568"
         app:layout_constraintStart_toStartOf="@+id/textView2"
-        app:layout_constraintTop_toBottomOf="@+id/textView">
+        app:layout_constraintTop_toBottomOf="@+id/textView_won">
 
         <TextView
 
@@ -171,7 +176,7 @@
             android:layout_width="wrap_content"
             android:layout_height="30dp"
 
-            android:text="O : 0"
+            android:text="You : 0"
             android:textColor="#000000"
             android:textSize="18dp" />
 
@@ -182,7 +187,7 @@
             android:layout_height="30dp"
             android:layout_marginLeft="30dp"
 
-            android:text="X : 0"
+            android:text="Computer : 0"
             android:textColor="#000000"
             android:textSize="18dp" />
     </LinearLayout>

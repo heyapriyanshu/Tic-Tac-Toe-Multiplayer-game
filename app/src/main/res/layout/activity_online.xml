@@ -26,7 +26,7 @@
 
             <Button
 
-                android:id="@+id/btn1"
+                android:id="@+id/online1"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_margin="3dp"
@@ -34,16 +34,46 @@
                 android:textSize="40sp" />
 
             <Button
+                android:id="@+id/online2"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="3dp"
                 android:contentDescription=" "
-                android:id="@+id/btn2"
+                android:textSize="40sp" />
+
+            <Button
+                android:id="@+id/online3"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="3dp"
+                android:contentDescription=" "
+                android:textSize="40sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <Button
+                android:contentDescription=" "
+                android:id="@+id/online4"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_margin="3dp"
                 android:textSize="40sp" />
 
             <Button
-                android:id="@+id/btn3"
                 android:contentDescription=" "
+                android:id="@+id/online5"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="3dp"
+                android:textSize="40sp" />
+
+            <Button
+                android:contentDescription=" "
+                android:id="@+id/online6"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_margin="3dp"
@@ -57,7 +87,7 @@
 
             <Button
                 android:contentDescription=" "
-                android:id="@+id/btn4"
+                android:id="@+id/online7"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_margin="3dp"
@@ -65,7 +95,7 @@
 
             <Button
                 android:contentDescription=" "
-                android:id="@+id/btn5"
+                android:id="@+id/online8"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_margin="3dp"
@@ -73,37 +103,7 @@
 
             <Button
                 android:contentDescription=" "
-                android:id="@+id/btn6"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_margin="3dp"
-                android:textSize="40sp" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center">
-
-            <Button
-                android:contentDescription=" "
-                android:id="@+id/btn7"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_margin="3dp"
-                android:textSize="40sp" />
-
-            <Button
-                android:contentDescription=" "
-                android:id="@+id/btn8"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_margin="3dp"
-                android:textSize="40sp" />
-
-            <Button
-                android:contentDescription=" "
-                android:id="@+id/btn9"
+                android:id="@+id/online9"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_margin="3dp"
@@ -126,14 +126,13 @@
         </TableRow>
     </TableLayout>
 
-    <TextView
+    <ImageView
 
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="cursive"
-        android:text="Tic Tac Toe"
-        android:textSize="45sp"
+
+        android:id="@+id/imageView2"
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:src="@drawable/logof"
         app:layout_constraintBottom_toTopOf="@+id/tableLayout"
         app:layout_constraintEnd_toEndOf="@+id/tableLayout"
         app:layout_constraintStart_toStartOf="parent"
@@ -143,48 +142,95 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
         android:fontFamily="cursive"
+        android:gravity="center"
+        android:text="Online"
         android:textColor="#7ed957"
-        android:text=" "
         android:textSize="25sp"
         app:layout_constraintBottom_toTopOf="@+id/tableLayout"
-        app:layout_constraintEnd_toEndOf="@+id/textView2"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="@+id/textView2"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.752" />
+        app:layout_constraintEnd_toEndOf="@+id/imageView2"
+        app:layout_constraintStart_toStartOf="@+id/imageView2"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        app:layout_constraintVertical_bias="0.0" />
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="20dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginRight="40dp"
+        android:layout_height="30dp"
+        android:layout_margin="16dp"
         android:gravity="center"
-        app:layout_constraintEnd_toEndOf="@+id/textView2"
-        app:layout_constraintStart_toStartOf="@+id/textView2"
+
+        app:layout_constraintBottom_toTopOf="@+id/tableLayout"
+        app:layout_constraintEnd_toEndOf="@+id/imageView2"
+        app:layout_constraintStart_toStartOf="@+id/imageView2"
         app:layout_constraintTop_toBottomOf="@+id/textView">
 
-        <TextView
 
-            android:id="@+id/score1"
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="30dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-            android:text="O : 0"
-            android:textColor="#000000"
-            android:textSize="18dp" />
+            <TextView
 
-        <TextView
+                android:id="@+id/player1"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:fontFamily="sans-serif-thin"
+                android:text="Player1 "
+                android:textColor="#000000"
+                android:textSize="24dp" />
 
-            android:id="@+id/score2"
+
+            <TextView
+
+                android:id="@+id/score1"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:fontFamily="sans-serif-thin"
+                android:text=" 0 "
+                android:textColor="#000000"
+                android:textSize="24dp" />
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:layout_marginLeft="30dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
 
-            android:text="X : 0"
-            android:textColor="#000000"
-            android:textSize="18dp" />
+
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:fontFamily="sans-serif-thin"
+                android:text=" - "
+                android:textColor="#000000"
+                android:textSize="24dp" />
+            <TextView
+
+                android:id="@+id/score2"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:fontFamily="sans-serif-thin"
+                android:text=" 0 "
+                android:textColor="#000000"
+                android:textSize="24dp" />
+
+            <TextView
+
+                android:id="@+id/player2"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:fontFamily="sans-serif-thin"
+                android:text=" Player2 "
+                android:textColor="#000000"
+                android:textSize="24dp" />
+
+
+
+
+        </LinearLayout>
+
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

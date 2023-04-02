@@ -1,18 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@drawable/bg"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+   <LinearLayout
+       android:id="@+id/off_on"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_centerInParent="true"
+       android:orientation="vertical">
+       <Button
+           android:layout_gravity="center"
+           android:id="@+id/offline"
+           android:text="OFFLINE"
+           android:textColor="@color/white"
+           android:background="@drawable/button_bg"
+           android:layout_width="100dp"
+           android:layout_height="wrap_content">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+       </Button>
+       <Button
+           android:id="@+id/online"
+           android:layout_gravity="center"
+           android:textColor="@color/white"
+           android:text="ONLINE"
+           android:layout_marginTop="15dp"
+           android:background="@drawable/button_bg2"
+           android:layout_width="100dp"
+           android:layout_height="wrap_content">
+
+       </Button>
+   </LinearLayout>
+    <LinearLayout
+       android:id="@+id/single_dual"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+        android:visibility="invisible"
+       android:layout_centerInParent="true"
+       android:orientation="vertical">
+       <Button
+           android:layout_gravity="center"
+           android:id="@+id/single"
+           android:text="Single player"
+           android:textColor="@color/white"
+           android:background="@drawable/button_bg"
+           android:layout_width="300dp"
+           android:layout_height="wrap_content">
+
+       </Button>
+       <Button
+           android:id="@+id/duo"
+           android:layout_gravity="center"
+           android:text="Dual player"
+           android:layout_marginTop="15dp"
+           android:textColor="@color/white"
+           android:background="@drawable/button_bg2"
+           android:layout_width="300dp"
+           android:layout_height="wrap_content">
+
+       </Button>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/room"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+        <Button
+           android:layout_gravity="center"
+           android:id="@+id/create"
+           android:text="Create Room"
+           android:textColor="@color/white"
+           android:background="@drawable/button_bg"
+           android:layout_width="300dp"
+           android:layout_height="wrap_content">
+
+       </Button>
+
+       <Button
+           android:id="@+id/join"
+           android:layout_gravity="center"
+           android:text="Join Room"
+           android:layout_marginTop="15dp"
+           android:textColor="@color/white"
+           android:background="@drawable/button_bg2"
+           android:layout_width="300dp"
+           android:layout_height="wrap_content">
+
+       </Button>
+
+
+   </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:transitionName="main_logo"
+        android:layout_width="300dp"
+        android:layout_height="200dp"
+        android:layout_above="@+id/off_on"
+        android:layout_marginBottom="10dp"
+       android:layout_centerHorizontal="true"
+
+        app:srcCompat="@drawable/logof" />
+
+
+
+</RelativeLayout>
