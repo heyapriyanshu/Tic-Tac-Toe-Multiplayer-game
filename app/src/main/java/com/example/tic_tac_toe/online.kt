@@ -78,8 +78,9 @@ class online : AppCompatActivity() {
         restart_btn.setOnClickListener {
             firebaseReference.child("Restart").setValue(1)
 
-        }
 
+        }
+        enableActivity(false)
 
         my_username = intent.getStringExtra("my_username").toString()
         room_id = intent.getStringExtra("room_id").toString()
@@ -132,6 +133,7 @@ class online : AppCompatActivity() {
                 val restart: Int = snapshot.value.toString().toInt()
                 if (restart == 1) {
                     firebaseReference.child("Restart").setValue(0)
+                    tv.text = "Online"
                     clearAll()
                 }
             }
@@ -284,9 +286,7 @@ class online : AppCompatActivity() {
             disableButton()
             tv.text = "$player Won!"
 
-            if (player == my_username) {
-                updateScoreInDatabase(player)
-            }
+            updateScoreInDatabase(player)
         } else if ((player1Steps.size + player2Steps.size) == 9) {
             Toast.makeText(this@online, "Tied", Toast.LENGTH_SHORT).show()
             restart_btn.isVisible = true
@@ -329,27 +329,37 @@ class online : AppCompatActivity() {
             buttonselected.isEnabled = false
         }
     }
-
+    private fun enableActivity(isEnabled: Boolean) {
+        if (!isEnabled) {
+            window.setFlags(
+                WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
+                WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE
+            )
+        } else {
+            window.clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
+        }
+    }
     private fun updateCurrentPlayer() {
         firebaseReference.child("Current_Player").addValueEventListener(object :
             ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
 
                 current_player = snapshot.value.toString()
-
+                if(current_player==my_username){
+                    enableActivity(true)
+                }
                 if (current_player == player1) {
-                   p1.setTextColor(Color.RED)
-                    p2.setTextColor(Color.BLACK)
+                    p1.setTextColor(Color.parseColor("#FF5757"))
+                    p2.setTextColor(Color.parseColor("#77000000"))
 
 
                 }
                 if (current_player == player2) {
-                    p2.setTextColor(Color.RED)
+                    p2.setTextColor(Color.parseColor("#FF5757"))
 
-                    p1.setTextColor(Color.BLACK)
+                    p1.setTextColor(Color.parseColor("#77000000"))
 
                 }
-
             }
 
             override fun onCancelled(error: DatabaseError) {
@@ -406,7 +416,7 @@ class online : AppCompatActivity() {
             R.id.online8 -> btnNum = 8
             R.id.online9 -> btnNum = 9
         }
-
+        enableActivity(false)
         game(btnNum, selectedBtn)
 
     }
@@ -415,16 +425,14 @@ class online : AppCompatActivity() {
         if (current_player == player1) {
 
             //player1Steps.add(btnNum)
-
-            selectedBtn.text = "O"
-            selectedBtn.setBackgroundColor(Color.parseColor("#FF5757"))
-            selectedBtn.isEnabled = false
+            updateBtn(selectedBtn,1)
+//            selectedBtn.text = "O"
+//            selectedBtn.setBackgroundColor(Color.parseColor("#FF5757"))
+//            selectedBtn.isEnabled = false
             addStepsToDatabase(current_player, btnNum)
 
         } else if (current_player == player2) {
-            selectedBtn.text = "X"
-            selectedBtn.setBackgroundColor(Color.parseColor("#457ab9"))
-            selectedBtn.isEnabled = false
+            updateBtn(selectedBtn,0)
             addStepsToDatabase(current_player, btnNum)
         }
 
