@@ -2,11 +2,15 @@ package com.example.tic_tac_toe
 
 import android.annotation.SuppressLint
 import android.app.AlertDialog
+import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.Button
@@ -57,12 +61,19 @@ class MainActivity : AppCompatActivity() {
 
 
         create.setOnClickListener{
+            if(!isOnline(applicationContext)){
+                Toast.makeText(this, "Please connect to internet", Toast.LENGTH_SHORT).show()
 
+            }else
             createDialogue()
 
         }
 
         join.setOnClickListener{
+            if(!isOnline(applicationContext)){
+                Toast.makeText(this, "Please connect to internet", Toast.LENGTH_SHORT).show()
+
+            }else
            joinDialogue()
         }
 
@@ -197,8 +208,12 @@ class MainActivity : AppCompatActivity() {
         startBtn.setOnClickListener{
             val name = editTextName.text.toString()
             val id = editTextId.text.toString()
-            Toast.makeText(this, "Name: $name, id: $id", Toast.LENGTH_SHORT).show()
+            if(!isOnline(applicationContext)){
+                Toast.makeText(this, "Please connect to internet", Toast.LENGTH_SHORT).show()
+
+            }else
             join_room(name,id)
+            dialog.cancel()
 
 
         }
@@ -213,6 +228,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun createDialogue() {
+
         val dialogView = LayoutInflater.from(this).inflate(R.layout.create_dialogue, null)
 
 
@@ -231,8 +247,13 @@ class MainActivity : AppCompatActivity() {
 
         startBtn.setOnClickListener{
             val name = editTextName.text.toString()
-            Toast.makeText(this, "Name: $name", Toast.LENGTH_SHORT).show()
+            if(!isOnline(applicationContext)){
+                Toast.makeText(this, "Please connect to internet", Toast.LENGTH_SHORT).show()
+
+            }
+            else
             create_room(name)
+            dialog.cancel()
         }
         cancelBtn.setOnClickListener{
             dialog.cancel()
@@ -242,6 +263,27 @@ class MainActivity : AppCompatActivity() {
 
 
 
+    }
+    fun isOnline(context: Context): Boolean {
+        val connectivityManager =
+            context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        if (connectivityManager != null) {
+            val capabilities =
+                connectivityManager.getNetworkCapabilities(connectivityManager.activeNetwork)
+            if (capabilities != null) {
+                if (capabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR)) {
+                    Log.i("Internet", "NetworkCapabilities.TRANSPORT_CELLULAR")
+                    return true
+                } else if (capabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI)) {
+                    Log.i("Internet", "NetworkCapabilities.TRANSPORT_WIFI")
+                    return true
+                } else if (capabilities.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET)) {
+                    Log.i("Internet", "NetworkCapabilities.TRANSPORT_ETHERNET")
+                    return true
+                }
+            }
+        }
+        return false
     }
 
 
