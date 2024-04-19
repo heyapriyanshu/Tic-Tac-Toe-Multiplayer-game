@@ -61,19 +61,18 @@ class MainActivity : AppCompatActivity() {
 
 
         create.setOnClickListener{
-            if(!isOnline(applicationContext)){
+            if(!isOnline(applicationContext))
                 Toast.makeText(this, "Please connect to internet", Toast.LENGTH_SHORT).show()
 
-            }else
+            else
             createDialogue()
 
         }
 
         join.setOnClickListener{
-            if(!isOnline(applicationContext)){
+            if(!isOnline(applicationContext))
                 Toast.makeText(this, "Please connect to internet", Toast.LENGTH_SHORT).show()
-
-            }else
+            else
            joinDialogue()
         }
 
@@ -160,13 +159,13 @@ class MainActivity : AppCompatActivity() {
                                     .show()
                             } else {
                                 //var player = Player2(username)
-                                firebaseReference.child(room_id.toString()).child("Players")
+                                firebaseReference.child(room_id).child("Players")
                                     .child("Player2").setValue(username)
 
                                 val intent =
                                     Intent(this@MainActivity, online::class.java)
                                 intent.putExtra("my_username", username)
-                                intent.putExtra("room_id", room_id.toString())
+                                intent.putExtra("room_id", room_id)
                                 startActivity(intent)
                             }
                         }
